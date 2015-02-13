@@ -1,0 +1,13 @@
+<div class="changeset <%= cycle('odd', 'even') %>">
+  <p>
+    <%= "#{l(:label_revision)} #{changeset.format_identifier}" %>
+    <% unless url_for_revision.blank? %>
+      <%= link_to "@github", url_for_revision %>
+    <% end %>
+    <%= link_to_revision(changeset, changeset.repository, :text => "@redmine") %>
+  <br />
+    <span class="author"><%= authoring(changeset.committed_on, changeset.author) %></span></p>
+<div class="changeset-changes">
+    <%= textilizable(changeset, :comments) %>
+</div>
+</div>
